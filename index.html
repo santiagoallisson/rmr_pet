@@ -329,7 +329,7 @@ tr:hover td { background: var(--bg-secondary); }
   <div class="hero">
     <span class="hero-eyebrow"><i class="ti ti-paw"></i> Painel de Personas</span>
     <h1>Tutores de pet no <em>RioMar Recife</em></h1>
-    <p>Perfil dos tutores que cadastraram o porte do pet (pequeno ou grande) para acessar o PetMar no período de março a abril de 2026.</p>
+    <p>Perfil dos tutores de pets que acessaram o PetMar no período de março a abril de 2026.</p>
     <div class="hero-meta" id="hero-meta"></div>
   </div>
 
@@ -344,6 +344,7 @@ tr:hover td { background: var(--bg-secondary); }
     <button class="pill" onclick="showTab('graficos', this)"><i class="ti ti-chart-bar"></i> Gráficos</button>
     <button class="pill" onclick="showTab('overlap', this)"><i class="ti ti-circles-relation"></i> Sobreposições</button>
     <button class="pill" onclick="showTab('segmentos', this)"><i class="ti ti-table"></i> Segmentos</button>
+    <button class="pill" onclick="showTab('eventos', this)"><i class="ti ti-calendar-event"></i> Eventos</button>
   </nav>
 
   <!-- PERSONAS -->
@@ -376,6 +377,33 @@ tr:hover td { background: var(--bg-secondary); }
     </div>
   </div>
 
+
+  <!-- EVENTOS -->
+  <div class="tab-panel" id="tab-eventos">
+    <div class="sec-label">Participação em Eventos do Shopping</div>
+    <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:24px">
+      <div class="kpi" style="--kc:#c2410c;flex:1;min-width:200px">
+        <div class="kpi-lbl">Encantos de Natal</div>
+        <div class="kpi-val">13</div>
+        <div class="kpi-s">7% da base — evento de Natal RioMar</div>
+      </div>
+      <div class="kpi" style="--kc:#0ea5e9;flex:1;min-width:200px">
+        <div class="kpi-lbl">Mundo dos Dinossauros</div>
+        <div class="kpi-val">4</div>
+        <div class="kpi-s">2% da base — 3 edicoes do evento</div>
+      </div>
+      <div class="kpi" style="--kc:#7c3aed;flex:1;min-width:200px">
+        <div class="kpi-lbl">KPop Love</div>
+        <div class="kpi-val">1</div>
+        <div class="kpi-s">menos de 1% da base — show K-Pop</div>
+      </div>
+    </div>
+    <div class="table-card">
+      <div class="table-title">Tutores PetMar por Evento</div>
+      <div class="table-sub">Qual evento do shopping cada tutor de pet participou, identificado por prefixo de ID</div>
+      <div id="ev-table-wrap"></div>
+    </div>
+  </div>
   <footer class="footer">Marketing e Experiência · JCPM Shoppings</footer>
 </div>
 
@@ -398,6 +426,13 @@ const DATA = {
   recebeu_email: { total: 79671, ids: ["4126485e-e9bc-4d7a-8465-3d25a62487a2","bde733b9-3c27-4fbf-a113-7602f8b4cc2f","3a8cd4ff-1f99-4ac1-aa31-e5cf15e923ba","cb6f3126-f96d-4eaa-a8f5-9588c43f752a","b1c018cc219840c4ac12f8c59072e317","148cc69b-0817-4685-8f1a-bf2a06fd8e98","2decb523-18ef-4dbf-bfae-163e63340c7b","647ce33c-4654-4d2b-8e14-9615b114e341","6b652f55-60b5-480d-b416-2aa4ad008969","5684a4b2-083b-49ef-9254-317c2928fc30","a1daa784-3413-44cd-9d8d-31c02424051d","0c9cd8d6-2498-42ef-ba01-e109f2652baa","c52fb149-726e-4023-95d8-463910d9ca02","3f5c6e86-938c-4373-8667-12ecf075ea0e","1ae1b479-81b2-4740-ab91-9f3985a8912d","31fa0258-4f57-4742-9c9a-05139084bcc6","3559ccb7-972e-4af0-a8ea-fe3e942d8ce5","7bef6561-8407-4aee-ab21-d987537deb67","badeba66-28d9-4c33-8327-39cf401407f5","c5a5542d-00d4-4f43-91a8-c8ea9c28e196","e09a910a-62bc-4111-b756-c52fa479ba35","e565b4ad-94f9-41f9-9d70-feec244ebd0e","bb65240f-80b9-4ec0-b3e5-be34968b1e40","c01415b44db049f3","6071b654-3aa2-48db-8c28-133bf2df8d50","8dadebb2-0b1e-4175-b8cd-3d3896c37bdc","aaa92401-f0d9-4da8-8502-8fd2a1fb8c08","54e2a53b-d2f4-4edb-a13c-0b0bdb5e6131","0debb7ba-5ea9-4812-92a2-a0adc986358a","28fa8b5b-5233-424e-add5-343390d5237a","4dd116bf-a3d8-48c2-828b-cbfd58c926bb","70662a58-3675-47f3-9323-91186a770a04","58b9905f-7ad0-4511-b3af-ae741e7f1c41","2209d713-8d7c-4906-b8ab-a01789d74905","4a56f65a-54eb-42a1-9809-e095f81ee1c1","ce242e14-3777-4e93-bc1c-64a46da83dbf","c0771aae-58f6-4540-8f1a-1db6c7a5bea5","ce2dbbd4-c2be-4685-b90a-561d4cccfbc1","ad222cac-84e3-4a22-8300-e1ca7b11cb5b","d0f6f09d-14e9-40db-ba1a-95854467dd81","1fe4aded-fb37-4965-a88b-19778bf7a777","5202649d-9006-4196-9b94-c6caa5d2d5f6","7eb27172-df63-4431-bc18-063ee29a90d9","90cd81d0-630f-471c-bc84-080d98c2bc29","315aa939-20b0-4c59-81b1-57a73b40818b","8f956592-4c66-4e47-a46a-f3d13d509f88","380342d7-5c43-4009-870f-cc22f424f4fa","788f005264f04aff","aec1acca6fab41728d025da519c678e2","35f71530-d9ba-471d-bd97-02bd4d5c0d04","6aad268f-34f3-4422-889f-5df31ec03967","ca7b0a2a-5e3b-4c57-a2ba-537814b28744","177de85b-3ae1-4729-9129-e5ba20d7518e","c48fbe8a-d275-443c-9e97-49c692b2234b","d4addf76-94a6-4e11-9a58-7c01e36598d0","7f26f11f-709c-47be-bd9f-32860563a71c","b20bbd4f-e0c6-4e31-a82e-10898ac41e4d","7d202205-aab2-4399-b287-5fc6ed1417ee","7cc89f55-9f63-41eb-880b-59198f32158c","d764c5c8-28ce-4595-9f47-70af8e6f4ec8","7df70a5f-d248-4b37-8397-ee0691008edb","947d7e20-7085-4da4-a03b-cb502a6906cd","08d52f4a-00eb-4860-8835-cb183ee6820e","619453e3-e080-4cf4-8ef3-a444a7f42709","7bee3b90-13f2-4aa1-957a-69e7559ab9e1","c07658c2-1942-4bf0-b9aa-fe3af7739541","774171af-ccf1-4802-a6d0-bb2324ea8709","2df5e520-ea92-40df-b948-5d1d4946811c","cb9baad1-fc73-4534-972c-f15047352646","d236689a-444b-4d32-90b6-d4911bb776e6","3600c1a0-59e2-4658-81eb-1fb48cfb4d5b","725e18b9-76e5-470b-893b-fa4a9ae92053","f29ef58c-8922-4cfe-84f4-dd504ed11b5d","02a1b746-ad21-4902-8e91-c247d10ff826","e840ba6b-dcb6-4e76-b5c2-b37e39511241","0a0d1024-e968-435c-ae92-e07c40ca8b5b","1961beb0-22ca-4e01-a927-2440815bcdc7","a7a2b2146bd3404f","0b0f5c7b-76ca-4b10-81d2-34a6fd99f639","286d4bd3-6857-4cb5-8a75-24847f50e791","5b036589-3fad-451f-a22b-2d67b5c0b19f","7a7a413f-1847-4036-9d4d-647b36ba751e","0477e5d5-502e-48cb-b622-556265cfff92","f5545d59-31f8-4655-8dee-4940fbec42f0","04817851-0077-47d5-ab2c-69b882c57883","6c2587d1-9f1e-4f03-8421-404887da2561","d33f6a56-6b37-4024-8b8e-78091645bf9b","fb4f1c19-5bd3-4e11-a810-c0980d08a20e","ed289de9-4e29-4ee9-b4e0-44c8bc7017cc","0b30568a-0041-4dfa-9ed3-0da8a106ec46"] },
   abriu_email: { total: 24188, ids: ["3a8cd4ff-1f99-4ac1-aa31-e5cf15e923ba","2decb523-18ef-4dbf-bfae-163e63340c7b","a1daa784-3413-44cd-9d8d-31c02424051d","1ae1b479-81b2-4740-ab91-9f3985a8912d","2209d713-8d7c-4906-b8ab-a01789d74905","ad222cac-84e3-4a22-8300-e1ca7b11cb5b","1fe4aded-fb37-4965-a88b-19778bf7a777","7eb27172-df63-4431-bc18-063ee29a90d9","380342d7-5c43-4009-870f-cc22f424f4fa","aec1acca6fab41728d025da519c678e2","6aad268f-34f3-4422-889f-5df31ec03967","7d202205-aab2-4399-b287-5fc6ed1417ee","619453e3-e080-4cf4-8ef3-a444a7f42709","774171af-ccf1-4802-a6d0-bb2324ea8709","cb9baad1-fc73-4534-972c-f15047352646","3600c1a0-59e2-4658-81eb-1fb48cfb4d5b","f29ef58c-8922-4cfe-84f4-dd504ed11b5d","1961beb0-22ca-4e01-a927-2440815bcdc7","d33f6a56-6b37-4024-8b8e-78091645bf9b"] },
   clicou_email: { total: 564, ids: [] },
+  estacionamento_tag:  { total: 35,  ids: ["0c9cd8d6-2498-42ef-ba01-e109f2652baa","3600c1a0-59e2-4658-81eb-1fb48cfb4d5b","6b652f55-60b5-480d-b416-2aa4ad008969","3a0b3731-a5b4-49b7-96c8-d14142844003","6071b654-3aa2-48db-8c28-133bf2df8d50","ecdc349e-fe91-4ce2-984f-8f06d2b82600","54e2a53b-d2f4-4edb-a13c-0b0bdb5e6131","4dd116bf-a3d8-48c2-828b-cbfd58c926bb","70662a58-3675-47f3-9323-91186a770a04","ce242e14-3777-4e93-bc1c-64a46da83dbf","3ec5c733-151d-45ba-a50a-b6257db9f037","5b036589-3fad-451f-a22b-2d67b5c0b19f","d0f6f09d-14e9-40db-ba1a-95854467dd81","356908c5-e9de-4c37-ae1f-c841f6c2f32b","1ea6f5cc-a6c3-4001-a507-01c96bb2523b","7eb27172-df63-4431-bc18-063ee29a90d9","df17097d-768e-4247-b042-2634cee30dfb","788f005264f04aff","e4750f7d-a7d1-4ab3-b008-8d9b02dc4f46","f9ca9dbf-919d-41f4-a132-126fe1b044e7","fb4f1c19-5bd3-4e11-a810-c0980d08a20e","947d7e20-7085-4da4-a03b-cb502a6906cd","b9721d95-edba-4052-b54d-c56bb0835268","619453e3-e080-4cf4-8ef3-a444a7f42709","9fcaf451-9247-4ee6-b43e-910b726b48ad"] },
+  emprestimo_carrinho: { total: 10,  ids: ["faf028a1-5a78-47c5-8d2c-7ce954b86f64","cd06b5b9-2792-4093-b722-655e63e8e2aa","4dd116bf-a3d8-48c2-828b-cbfd58c926bb","1ea6f5cc-a6c3-4001-a507-01c96bb2523b","5202649d-9006-4196-9b94-c6caa5d2d5f6","0477e5d5-502e-48cb-b622-556265cfff92","3131f0c9-142e-48b7-b4ab-e263b29ab432","9fcaf451-9247-4ee6-b43e-910b726b48ad"] },
+  interesses:          { total: 23,  ids: ["4126485e-e9bc-4d7a-8465-3d25a62487a2","cd06b5b9-2792-4093-b722-655e63e8e2aa","c52fb149-726e-4023-95d8-463910d9ca02","5684a4b2-083b-49ef-9254-317c2928fc30","3f5c6e86-938c-4373-8667-12ecf075ea0e","58b9905f-7ad0-4511-b3af-ae741e7f1c41","0477e5d5-502e-48cb-b622-556265cfff92","6b652f55-60b5-480d-b416-2aa4ad008969","3131f0c9-142e-48b7-b4ab-e263b29ab432","ad39a634-5537-4301-88fe-510541dc7890","28fa8b5b-5233-424e-add5-343390d5237a","04817851-0077-47d5-ab2c-69b882c57883","ffa15e33-fb51-46a4-bbf2-1c6d59010a85","4a56f65a-54eb-42a1-9809-e095f81ee1c1","5202649d-9006-4196-9b94-c6caa5d2d5f6","c41172fd-ed1a-49c4-8d19-ddb00daaa7fb","619453e3-e080-4cf4-8ef3-a444a7f42709"] },
+  _interesses_detalhe: {"Eventos em geral": 22, "Cinema": 2, "Esportes": 1},
+  evento_natal:       { total: 13, ids: ["0477e5d5-502e-48cb-b622-556265cfff92","04817851-0077-47d5-ab2c-69b882c57883","3131f0c9-142e-48b7-b4ab-e263b29ab432","315aa939-20b0-4c59-81b1-57a73b40818b","3f5c6e86-938c-4373-8667-12ecf075ea0e","4126485e-e9bc-4d7a-8465-3d25a62487a2","4a56f65a-54eb-42a1-9809-e095f81ee1c1","524968d7-2b82-45ad-8e50-0645ac048c48","5684a4b2-083b-49ef-9254-317c2928fc30","90cd81d0-630f-471c-bc84-080d98c2bc29","c52fb149-726e-4023-95d8-463910d9ca02","cd06b5b9-2792-4093-b722-655e63e8e2aa","ffa15e33-fb51-46a4-bbf2-1c6d59010a85"] },
+  evento_dinossauros: { total: 4,  ids: ["04817851-0077-47d5-ab2c-69b882c57883","336e8192-126a-4fcb-9a2b-b52011e6c354","43d00e24-ad8d-418f-8c6a-3be24a9e5551","c5a5542d-00d4-4f43-91a8-c8ea9c28e196"] },
+  _evento_detalhe:    {"0477e5d5-502e-48cb-b622-556265cfff92":["Encantos de Natal RioMar"],"04817851-0077-47d5-ab2c-69b882c57883":["Encantos de Natal RioMar","KPop Love","Mundo dos Dinossauros"],"3131f0c9-142e-48b7-b4ab-e263b29ab432":["Encantos de Natal RioMar"],"315aa939-20b0-4c59-81b1-57a73b40818b":["Encantos de Natal RioMar"],"336e8192-126a-4fcb-9a2b-b52011e6c354":["Mundo dos Dinossauros"],"3f5c6e86-938c-4373-8667-12ecf075ea0e":["Encantos de Natal RioMar"],"4126485e-e9bc-4d7a-8465-3d25a62487a2":["Encantos de Natal RioMar"],"43d00e24-ad8d-418f-8c6a-3be24a9e5551":["Mundo dos Dinossauros"],"4a56f65a-54eb-42a1-9809-e095f81ee1c1":["Encantos de Natal RioMar"],"524968d7-2b82-45ad-8e50-0645ac048c48":["Encantos de Natal RioMar"],"5684a4b2-083b-49ef-9254-317c2928fc30":["Encantos de Natal RioMar"],"90cd81d0-630f-471c-bc84-080d98c2bc29":["Encantos de Natal RioMar"],"c52fb149-726e-4023-95d8-463910d9ca02":["Encantos de Natal RioMar"],"c5a5542d-00d4-4f43-91a8-c8ea9c28e196":["Mundo dos Dinossauros"],"cd06b5b9-2792-4093-b722-655e63e8e2aa":["Encantos de Natal RioMar"],"ffa15e33-fb51-46a4-bbf2-1c6d59010a85":["Encantos de Natal RioMar"]},
 };
 
 // ── CHART.JS DEFAULTS (LIGHT THEME) ──────────────────────────
@@ -427,6 +462,11 @@ const SEG_INFO = {
   recebeu_email:         {label:'Está na base de e-mail',       icon:'ti-mail',           group:'engajamento'},
   abriu_email:           {label:'Abriu e-mail no período',      icon:'ti-mail-opened',    group:'engajamento'},
   clicou_email:          {label:'Clicou em e-mail (CTA)',       icon:'ti-mouse',          group:'engajamento'},
+  estacionamento_tag:  {label:'Tag de estacionamento',     icon:'ti-car',            group:'comportamento'},
+  emprestimo_carrinho: {label:'Pegou carrinho de bebê',    icon:'ti-heart',          group:'família'},
+  interesses:          {label:'Com interesses declarados', icon:'ti-star',           group:'engajamento'},
+  evento_natal:       {label:'Encantos de Natal RioMar',  icon:'ti-star-filled',  group:'engajamento'},
+  evento_dinossauros: {label:'Mundo dos Dinossauros',     icon:'ti-mood-happy',   group:'engajamento'},
 };
 
 // ── PERSONAS ─────────────────────────────────────────────────
@@ -473,6 +513,20 @@ const PERSONAS = [
     tags:['Desinstalou app','Canal perdido'],
     fn: (u, D) => D.desinstalou_app.has(u)
   },
+  {
+    id:'familia_bebe', name:'Família com Bebê', icon:'ti-heart', color:'#059669',
+    desc:'Utilizou o Espaço Família do shopping — pegou carrinho de bebê emprestado. Família com crianças até 2 anos, presença física confirmada no shopping. Oportunidade de cross-sell com lojas baby e kids.',
+    action:'Comunicação de conveniência e cuidado familiar. Ativações do Espaço Família. Parceria com marcas baby & kids do mall.',
+    tags:['Espaço Família','Filho até 2 anos','Presença física'],
+    fn: (u, D) => D.emprestimo_carrinho.has(u)
+  },
+  {
+    id:'motorista', name:'Tutor Motorista', icon:'ti-car', color:'#b45309',
+    desc:'Possui tag de estacionamento cadastrada — chega de carro ao shopping. Perfil de conveniência e mobilidade, tende a ter maior poder aquisitivo. Frequência de visita potencialmente maior por ter carro.',
+    action:'Push sobre facilidades de estacionamento e serviços premium do PetMar. Promoções de conveniência para quem vem de carro.',
+    tags:['Tag de estacionamento','Perfil premium','Chega de carro'],
+    fn: (u, D) => D.estacionamento_tag.has(u)
+  },
 ];
 
 // ── STATE ─────────────────────────────────────────────────────
@@ -503,16 +557,17 @@ function renderAll() {
   try { renderCharts(T); } catch(e) { console.warn('Chart.js indisponível:', e); }
   renderOverlaps(T);
   renderSegments(T);
+  renderEventosTable();
 }
 
 // ── HERO META ─────────────────────────────────────────────────
 function renderHeroMeta(T) {
   const ambos = [...DS.pet_pequeno].filter(u => DS.pet_grande.has(u)).length;
   const stats = [
-    {val: fmt(T),                       lbl: 'tutores com porte cadastrado'},
-    {val: fmt(DS.pet_pequeno.size),      lbl: 'pets pequenos'},
-    {val: fmt(DS.pet_grande.size),       lbl: 'pets grandes'},
-    {val: fmt(ambos),                    lbl: 'com ambos os portes'},
+    {val: fmt(T),                       lbl: 'Total de tutores de pet'},
+    {val: fmt(DS.pet_pequeno.size),      lbl: 'Com pets pequenos'},
+    {val: fmt(DS.pet_grande.size),       lbl: 'Com pets grandes'},
+    {val: fmt(ambos),                    lbl: 'Com ambos os portes'},
   ];
   document.getElementById('hero-meta').innerHTML = stats.map(s => `
     <div class="hero-stat">
@@ -543,6 +598,18 @@ function renderInsights(T) {
     { lbl:'Engajamento por e-mail', val: pct(DS.recebeu_email.size,T)+'%',
       desc: fmt(DS.recebeu_email.size)+' estão na base de e-mail, mas apenas '+fmt(DS.abriu_email.size)+' abriram e nenhum clicou. Base pouco ativada por e-mail.',
       color:'#0891b2' },
+    { lbl:'Motoristas: segmento premium', val: pct(DS.estacionamento_tag.size,T)+'%',
+      desc: fmt(DS.estacionamento_tag.size)+' tutores de pet têm tag de estacionamento — chegam de carro, perfil de maior poder aquisitivo e conveniência.',
+      color:'#b45309' },
+    { lbl:'Famílias com bebê', val: pct(DS.emprestimo_carrinho.size,T)+'%',
+      desc: fmt(DS.emprestimo_carrinho.size)+' usaram o Espaço Família (carrinho emprestado) — pais de crianças com menos de 2 anos no shopping.',
+      color:'#059669' },
+    { lbl:'Interesses declarados', val: pct(DS.interesses.size,T)+'%',
+      desc: fmt(DS.interesses.size)+' tutores têm interesses registrados no CRM — foco em Eventos (22), Cinema (2) e Esportes (1).',
+      color:'#7c3aed' },
+    { lbl:'Participaram de eventos', val: pct(new Set([...DS.evento_natal,...DS.evento_dinossauros]).size,T)+'%',
+      desc: '16 tutores PetMar foram a eventos do shopping: 13 no Encantos de Natal e 4 no Mundo dos Dinossauros. Engajamento presencial confirmado.',
+      color:'#0369a1' },
   ];
   document.getElementById('ins-grid').innerHTML = ins.map(i => `
     <div class="ins" style="--ic:${i.color}">
@@ -563,6 +630,11 @@ function renderKPIs(T) {
     {l:'iOS',               v:fmt(DS.ios.size),                s:pct(DS.ios.size,T)+'% dos tutores de pet',c:'#7c3aed'},
     {l:'Android',           v:fmt(DS.android.size),            s:pct(DS.android.size,T)+'% dos tutores de pet', c:'#059669'},
     {l:'Novos no app',      v:fmt(DS.instalou_app.size),       s:pct(DS.instalou_app.size,T)+'% instalaram no período', c:'#0891b2'},
+    {l:'Tag Estacionamento', v:fmt(DS.estacionamento_tag.size), s:pct(DS.estacionamento_tag.size,T)+'% chegam de carro',    c:'#b45309'},
+    {l:'Família com Bebê',   v:fmt(DS.emprestimo_carrinho.size),s:pct(DS.emprestimo_carrinho.size,T)+'% Espaço Família',   c:'#059669'},
+    {l:'Interesses CRM',     v:fmt(DS.interesses.size),         s:pct(DS.interesses.size,T)+'% com interesses declarados', c:'#7c3aed'},
+    {l:'Encantos de Natal',  v:fmt(DS.evento_natal.size),       s:pct(DS.evento_natal.size,T)+'% foram ao Natal RioMar',      c:'#c2410c'},
+    {l:'Mundo Dinossauros',  v:fmt(DS.evento_dinossauros.size), s:pct(DS.evento_dinossauros.size,T)+'% evento Dinossauros',    c:'#0ea5e9'},
   ];
   document.getElementById('kpi-row').innerHTML = kpis.map(k => `
     <div class="kpi" style="--kc:${k.c}">
@@ -618,7 +690,10 @@ function renderCharts(T) {
     {id:'c-device',  t:'Dispositivo',               s:'iOS vs Android — tutores de pet cadastrados'},
     {id:'c-multi',   t:'Pet Pequeno × Grande',      s:'Tutores com um porte, com o outro, ou ambos'},
     {id:'c-presenca',t:'Presença e Engajamento',    s:'WiFi, eventos, ciclo de vida do app no período'},
-    {id:'c-personas',t:'Distribuição das Personas', s:'Tamanho relativo de cada persona na base'},
+    {id:'c-personas',   t:'Distribuição das Personas',    s:'Tamanho relativo de cada persona na base'},
+    {id:'c-interesses', t:'Interesses Declarados',         s:'Interesses registrados pelos tutores de pet no CRM'},
+    {id:'c-novosseg',   t:'Novos Segmentos',               s:'Tag de estacionamento, carrinho e interesses vs base'},
+    {id:'c-eventos', t:'Eventos do Shopping',           s:'Tutores PetMar que participaram de eventos no RioMar Recife'},
   ];
   for (const d of defs) {
     const card = document.createElement('div');
@@ -656,8 +731,54 @@ function renderCharts(T) {
 
   const ps = PERSONAS.map(p => [...BASE_SET].filter(u => p.fn(u, DS)).length);
   donut('c-personas', PERSONAS.map(p => p.name), ps, PERSONAS.map(p => p.color));
+
+  const interDet = DATA._interesses_detalhe;
+  donut('c-interesses', Object.keys(interDet), Object.values(interDet), ['#b45309','#7c3aed','#059669']);
+
+  bar('c-novosseg',
+    ['Tag Estacionamento','Família c/ Bebê','Interesses CRM'],
+    [DS.estacionamento_tag.size, DS.emprestimo_carrinho.size, DS.interesses.size],
+    ['#b45309','#059669','#7c3aed']);
+  bar('c-eventos',
+    ['Encantos de Natal','Mundo dos Dinossauros','KPop Love'],
+    [DS.evento_natal.size, DS.evento_dinossauros.size, 1],
+    ['#c2410c','#0ea5e9','#7c3aed']);
 }
 
+function renderEventosTable() {
+  const evMap = DATA._evento_detalhe;
+  const evColors = {
+    'Encantos de Natal RioMar': '#c2410c',
+    'KPop Love':                '#7c3aed',
+    'Mundo dos Dinossauros':    '#0ea5e9'
+  };
+  const ids = Object.keys(evMap).sort();
+  const rows = ids.map((id, i) => {
+    const events = evMap[id];
+    const mask = id.slice(0, 8) + '…';
+    const bg   = i % 2 === 0 ? '#f8fafc' : '#ffffff';
+    const pills = events.map(e => {
+      const c = evColors[e] || '#64748b';
+      return '<span style="background:' + c + '1a;color:' + c + ';border:1px solid ' + c + '40;padding:2px 10px;border-radius:12px;font-size:11px;margin:2px;display:inline-block;font-weight:600">' + e + '</span>';
+    }).join(' ');
+    return '<tr style="background:' + bg + ';border-bottom:1px solid #f1f5f9">' +
+      '<td style="padding:8px 12px;font-size:11px;color:#94a3b8;font-family:monospace">' + mask + '</td>' +
+      '<td style="padding:8px 12px">' + pills + '</td>' +
+      '<td style="padding:8px 12px;text-align:center;font-weight:700;color:#334155">' + events.length + '</td>' +
+      '</tr>';
+  }).join('');
+  const n = ids.length;
+  const T = BASE_SET.size;
+  const pct2 = Math.round(n / T * 100);
+  document.getElementById('ev-table-wrap').innerHTML =
+    '<p style="color:#64748b;margin:0 0 12px"><strong style="color:#0369a1">' + n + '</strong> de <strong>' + T + '</strong> tutores PetMar participaram de eventos no RioMar Recife <span style="color:#94a3b8">(' + pct2 + '% da base)</span></p>' +
+    '<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:13px"><thead>' +
+    '<tr style="background:#f1f5f9;border-bottom:2px solid #e2e8f0">' +
+    '<th style="padding:10px 12px;text-align:left;color:#64748b;font-weight:600;font-size:11px;text-transform:uppercase">ID Tutor</th>' +
+    '<th style="padding:10px 12px;text-align:left;color:#64748b;font-weight:600;font-size:11px;text-transform:uppercase">Eventos Participados</th>' +
+    '<th style="padding:10px 12px;text-align:center;color:#64748b;font-weight:600;font-size:11px;text-transform:uppercase">Qtd</th>' +
+    '</tr></thead><tbody>' + rows + '</tbody></table></div>';
+}
 function bar(id, labels, data, colors) {
   if (typeof Chart === 'undefined') return;
   const ctx = document.getElementById(id)?.getContext('2d');
